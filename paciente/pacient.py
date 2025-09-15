@@ -29,6 +29,12 @@ class Paciente:
         hoje = datetime.today()
         anos = hoje.year - self.__nasc.year
         meses = hoje.month - self.__nasc.month
+        dias = hoje.day - self.__nasc.day
+        if dias < 0:
+            meses -= 1
+        if meses < 0:
+            anos -= 1
+            meses += 12
         return f"{anos} anos e {meses} meses"
     def __str__(self):
         return f"Olá, {self.__nome}! Você tem {self.idade()}"

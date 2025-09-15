@@ -1,4 +1,5 @@
 import streamlit as st
+from datetime import datetime
 from pacient import Paciente
 
 class PacienteUI:
@@ -7,6 +8,8 @@ class PacienteUI:
         nome = st.text_input("Digite o nome: ")
         cpf = st.text_input("Digite o CPF: ")
         tel = st.text_input("Digite o número de telefone: ")
-        nasc = st.text_input("Digitea data de nascimento: ")
+        nasc = st.date_input("Digitea data de nascimento: ")
         if st.button("Idade"):
-            
+            paciente = Paciente(nome, cpf, tel, nasc)
+            st.write(paciente)
+            st.write(paciente.idade())
